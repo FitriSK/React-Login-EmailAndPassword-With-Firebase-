@@ -1,0 +1,28 @@
+.formComponent {
+    background-color: blueviolet;
+    margin: 100px auto;
+    max-width: 450px;
+    padding: 90px 30px;
+}
+
+.inputSection {
+    margin-top: 10px;
+}
+
+input {
+    border: none;
+    margin-right: 10px;
+    padding: 6px;
+}
+
+.buttonSection {
+    margin-top: 10px;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    margin-right: 10px;
+    padding: 6px;
+}

@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { signup, login, logout, useAuth } from "../Firebase";
+import classes from "../components/Form.module.css";
 
 function Form() {
   const emailRef = useRef();
@@ -38,14 +39,23 @@ function Form() {
     setLoading(false);
   }
 
+  let userEmail;
+  if (curUser) {
+    userEmail = "You are logged in using " + curUser.email;
+  }
+  else {
+    userEmail = null;
+  }
+
   return (
-    <>
-      <h1>Hi {curUser?.email}!</h1>
-      <div>
-        <input ref={emailRef} placeholder="email" />
-        <input ref={pwdRef} type="password" placeholder="password" />
+    <div className={classes.formComponent}>
+      <h1>Welcome Buddy !</h1>
+      <p>{userEmail}</p>
+      <div className={classes.inputSection}>
+        <input ref={emailRef} placeholder="E-mail" />
+        <input ref={pwdRef} type="password" placeholder="Password" />
       </div>
-      <div>
+      <div className={classes.buttonSection}>
         <button disabled={loading || curUser} onClick={handleClickSignup}>
           Sign Up
         </button>
@@ -56,7 +66,7 @@ function Form() {
           Logout
         </button>
       </div>
-    </>
+    </div>
   );
 }
 
